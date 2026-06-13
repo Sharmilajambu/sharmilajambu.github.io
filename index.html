@@ -248,11 +248,12 @@ footer{background:var(--green);padding:28px 60px;display:flex;align-items:center
 @media(max-width:900px){
   nav{padding:16px 20px}
   nav.scrolled{padding:12px 20px}
-  .nav-links,.nav-btn-group{display:none}
-  .hamburger{display:flex}
-  #hero{grid-template-columns:1fr;padding:90px 20px 50px;gap:30px}
-  .hero-right{display:none}
-  .hero-ticker{display:none}
+  .nav-links,.nav-btn-group{display:none !important}
+  .hamburger{display:flex !important}
+  #hero{grid-template-columns:1fr !important;padding:90px 20px 50px;gap:30px}
+  .hero-right{display:none !important}
+  .hero-ticker{display:none !important}
+  .hero-bg-circle{width:260px;height:260px;top:-40px;right:-40px}
   .hero-name .line:nth-child(1){font-size:clamp(2.2rem,8vw,3.5rem)}
   .hero-name .line:nth-child(2){font-size:clamp(1.8rem,6vw,2.8rem)}
   section{padding:60px 20px}
@@ -277,9 +278,14 @@ footer{background:var(--green);padding:28px 60px;display:flex;align-items:center
 }
 @media(max-width:560px){
   nav{padding:14px 16px}
+  .nav-links,.nav-btn-group{display:none !important}
+  .hamburger{display:flex !important}
+  #hero{grid-template-columns:1fr !important;padding:80px 16px 40px !important}
+  .hero-right{display:none !important}
+  .hero-bg-circle{width:200px;height:200px;top:-30px;right:-30px;opacity:.25}
   .hero-eyebrow{font-size:.62rem;padding:6px 12px}
-  .hero-name .line:nth-child(1){font-size:clamp(1.9rem,9vw,2.8rem)}
-  .hero-name .line:nth-child(2){font-size:clamp(1.5rem,7vw,2.2rem)}
+  .hero-name .line:nth-child(1){font-size:clamp(1.9rem,9vw,2.8rem) !important}
+  .hero-name .line:nth-child(2){font-size:clamp(1.5rem,7vw,2.2rem) !important}
   .hero-desc{font-size:.88rem}
   .hero-btns{flex-direction:column;gap:10px}
   .btn-primary,.btn-outline{width:100%;justify-content:center;padding:13px 20px}
@@ -313,7 +319,7 @@ footer{background:var(--green);padding:28px 60px;display:flex;align-items:center
 <nav id="navbar">
   <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
     <div class="nav-logo-dot"></div>
-    Sharmila J
+    SJ
   </div>
   <div class="nav-links">
     <a href="#about">About</a>
