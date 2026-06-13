@@ -35,7 +35,6 @@ nav.scrolled{background:rgba(245,243,238,.95);backdrop-filter:blur(20px);border-
 .nav-links{display:flex;gap:36px;align-items:center}
 .nav-links a{color:var(--muted);font-size:.82rem;font-weight:500;letter-spacing:.5px;transition:color .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--green)}
-/* NAV BUTTONS GROUP */
 .nav-btn-group{display:flex;gap:10px;align-items:center}
 .nav-cta{background:var(--green);color:#fff;font-size:.78rem;font-weight:600;padding:10px 24px;border-radius:50px;letter-spacing:.5px;transition:all .25s;cursor:pointer;font-family:var(--sans);border:none}
 .nav-cta:hover{background:var(--green2);transform:translateY(-1px)}
@@ -79,6 +78,32 @@ nav.scrolled{background:rgba(245,243,238,.95);backdrop-filter:blur(20px);border-
 .hero-right{position:relative;z-index:1;display:flex;justify-content:center;align-items:center}
 .hero-image-wrap{position:relative;width:400px;height:480px}
 .hero-image-blob{width:100%;height:100%;background:var(--green);border-radius:60% 40% 70% 30% / 50% 60% 40% 50%;overflow:hidden;position:relative}
+/* PHOTO PROTECTION: watermark inside blob */
+.photo-watermark{
+  position:absolute;
+  bottom:40%;
+  left:7px;
+  color:rgba(255,255,255,0.38);
+  font-size:.62rem;
+  font-weight:600;
+  letter-spacing:.5px;
+  pointer-events:none;
+  z-index:10;
+  text-shadow:0 1px 3px rgba(0,0,0,.5);
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  white-space:nowrap;
+  user-select:none;
+  -webkit-user-select:none;
+}
+/* PHOTO PROTECTION: disable drag on image */
+.hero-image-blob img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;transform:scale(1.45);
+  -webkit-user-drag:none;
+  user-select:none;
+  -webkit-user-select:none;
+  pointer-events:none;
+}
 .hero-badge{position:absolute;background:var(--white);border-radius:16px;padding:14px 18px;box-shadow:0 8px 32px rgba(0,0,0,.1);display:flex;align-items:center;gap:10px}
 .hero-badge-1{bottom:-10px;left:-20px}
 .hero-badge-2{top:40px;right:-30px}
@@ -172,7 +197,6 @@ section{padding:100px 60px}
 .cert-highlight .cert-id{color:rgba(255,255,255,.65)}
 .cert-highlight .cert-desc{color:rgba(255,255,255,.75);font-size:.82rem;line-height:1.75;margin-top:8px}
 .cert-highlight .cert-badge{background:var(--yellow);color:var(--green)}
-/* FIX 1: Achievement boxes side by side */
 .achievement-container{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
 .achievement-block{padding:24px;background:var(--white);border-radius:16px;border-left:4px solid var(--yellow)}
 .achievement-block .cert-org{color:var(--text)}
@@ -253,7 +277,7 @@ footer{background:var(--green);padding:28px 60px;display:flex;align-items:center
 <nav id="navbar">
   <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
     <div class="nav-logo-dot"></div>
-    SJ
+    Sharmila J
   </div>
   <div class="nav-links">
     <a href="#about">About</a>
@@ -262,9 +286,8 @@ footer{background:var(--green);padding:28px 60px;display:flex;align-items:center
     <a href="#certifications">Certs</a>
     <a href="#contact">Contact</a>
   </div>
-  <!-- FIX 2: My Resume button beside Hire Me -->
   <div class="nav-btn-group">
-    <button class="nav-resume" onclick="window.open('resume template.pdf', '_blank')">📄 My Resume</button>
+    <button class="nav-resume" onclick="window.open('Sharmila_J_Resume.pdf', '_blank')">📄 My Resume</button>
     <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
   </div>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
@@ -310,7 +333,8 @@ footer{background:var(--green);padding:28px 60px;display:flex;align-items:center
   <div class="hero-right">
     <div class="hero-image-wrap">
       <div class="hero-image-blob">
-        <img src="img.jpg" alt="Sharmila J" style="width:100%;height:100%;object-fit:cover;object-position:center top;transform:scale(1.00);">
+        <img src="sharmila.jpg" alt="Sharmila J">
+        <span class="photo-watermark">© Sharmila J</span>
       </div>
       <div class="hero-badge hero-badge-1">
         <div class="hero-badge-icon">🎓</div>
@@ -318,7 +342,7 @@ footer{background:var(--green);padding:28px 60px;display:flex;align-items:center
       </div>
       <div class="hero-badge hero-badge-2">
         <div class="hero-badge-icon">💼</div>
-        <div class="hero-badge-text"><strong>2 Internships</strong><span>10+ Certs</span></div>
+        <div class="hero-badge-text"><strong>3 Internships</strong><span>10+ Certs</span></div>
       </div>
     </div>
   </div>
@@ -328,12 +352,10 @@ footer{background:var(--green);padding:28px 60px;display:flex;align-items:center
   <div class="ticker-inner" id="ticker">
     <span class="ticker-item">Full Stack Developer <span class="dot">✦</span></span>
     <span class="ticker-item">AI &amp; Data Science <span class="dot">✦</span></span>
-    <span class="ticker-item">Python Developer <span class="dot">✦</span></span>
     <span class="ticker-item">Web Developer <span class="dot">✦</span></span>
     <span class="ticker-item">Problem Solver <span class="dot">✦</span></span>
     <span class="ticker-item">Full Stack Developer <span class="dot">✦</span></span>
     <span class="ticker-item">AI &amp; Data Science <span class="dot">✦</span></span>
-    <span class="ticker-item">Python Developer <span class="dot">✦</span></span>
     <span class="ticker-item">Web Developer <span class="dot">✦</span></span>
     <span class="ticker-item">Problem Solver <span class="dot">✦</span></span>
   </div>
@@ -348,7 +370,7 @@ footer{background:var(--green);padding:28px 60px;display:flex;align-items:center
       <p class="about-body">I'm a B.Tech student in Artificial Intelligence and Data Science at Panimalar Engineering College with a CGPA of 8.2 — a responsible, organised individual eager to apply and expand my skills in real-world settings.</p>
       <p class="about-body">My hands-on experience spans Python desktop development, full-stack web applications, and data science — backed by internships and a growing portfolio of meaningful projects.</p>
       <div class="about-stats">
-        <div class="stat"><div class="stat-num">2</div><div class="stat-label">Internships</div></div>
+        <div class="stat"><div class="stat-num">3</div><div class="stat-label">Internships</div></div>
         <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Certs</div></div>
         <div class="stat"><div class="stat-num">8.2</div><div class="stat-label">CGPA</div></div>
       </div>
@@ -419,15 +441,15 @@ footer{background:var(--green);padding:28px 60px;display:flex;align-items:center
       <div class="exp-left">
         <div>
           <div class="exp-date">Internship</div>
-          <div class="exp-date">Python Development</div>
+          <div class="exp-date">Web Development</div>
         </div>
-        <div class="exp-company-badge">Industrial Design &amp; Animations</div>
+        <div class="exp-company-badge">ApexPlanet Software Pvt.Ltd</div>
       </div>
       <div class="exp-right">
-        <div class="exp-role">Python Development Intern</div>
-        <p class="exp-desc">Developed a Python-based Fitness Tracker application using Tkinter for the GUI. Integrated Firebase as the backend to store and manage user fitness data securely, enabling real-time data synchronisation and persistent cloud storage.</p>
+        <div class="exp-role">Web Development Intern</div>
+        <p class="exp-desc">Gained hands-on experience in web development through a structured internship program at ApexPlanet. Worked with core frontend technologies to build and enhance web interfaces in a dynamic, professional environment.</p>
         <div class="exp-tech">
-          <span>Python</span><span>Tkinter</span><span>Firebase</span><span>GUI Development</span>
+          <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Web Development</span>
         </div>
       </div>
     </div>
@@ -447,6 +469,22 @@ footer{background:var(--green);padding:28px 60px;display:flex;align-items:center
         </div>
       </div>
     </div>
+    <div class="exp-item reveal">
+      <div class="exp-left">
+        <div>
+          <div class="exp-date">Internship</div>
+          <div class="exp-date">Python Development</div>
+        </div>
+        <div class="exp-company-badge">Industrial Design &amp; Animations</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Python Development Intern</div>
+        <p class="exp-desc">Developed a Python-based Fitness Tracker application using Tkinter for the GUI. Integrated Firebase as the backend to store and manage user fitness data securely, enabling real-time data synchronisation and persistent cloud storage.</p>
+        <div class="exp-tech">
+          <span>Python</span><span>Tkinter</span><span>Firebase</span><span>GUI Development</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -462,13 +500,13 @@ footer{background:var(--green);padding:28px 60px;display:flex;align-items:center
   <div class="projects-grid">
     <div class="project-card reveal" data-category="fullstack web">
       <div class="project-card-inner">
-        <div class="project-icon">🔍</div>
+        <div class="project-icon">🧾</div>
         <div class="project-tags-row">
-          <span class="project-tag">Java</span><span class="project-tag">JSP</span>
-          <span class="project-tag">Servlets</span><span class="project-tag">MySQL</span>
+          <span class="project-tag">React.js</span><span class="project-tag">Spring Boot</span>
+          <span class="project-tag">Java</span><span class="project-tag">MySQL</span>
         </div>
-        <div class="project-title">Code Plagiarism Detector</div>
-        <p class="project-desc">A full-stack plagiarism detection tool that compares two uploaded code files using a token-based algorithm, delivers an instant similarity score, and maintains a searchable history of comparisons.</p>
+        <div class="project-title">AI Tax Filing System</div>
+        <p class="project-desc">A full-stack Indian ITR filing platform with AI-assisted form auto-fill, automated tax calculation, and secure document uploads. Features ITR form generation, ChatBot support, and tax prediction insights for smarter financial planning.</p>
       </div>
       <div class="project-num-bg">01</div>
     </div>
@@ -538,21 +576,16 @@ footer{background:var(--green);padding:28px 60px;display:flex;align-items:center
     <div class="cert-card reveal"><div class="cert-org">Deloitte</div><div class="cert-name">Technology Job Simulation</div></div>
     <div class="cert-card reveal reveal-delay-1"><div class="cert-org">Anthropic</div><div class="cert-name">AI Fluency for Students</div></div>
   </div>
-  <!-- FIX 1: Achievement boxes side by side using grid -->
   <div class="achievement-container">
     <div class="achievement-block reveal">
       <div class="cert-org">Achievement — Global Competition</div>
       <div class="cert-name">IEEEXtreme 24-Hour Global Coding Challenge</div>
-      <div class="cert-desc">
-        Competed in an international 24-hour coding marathon solving complex algorithmic problems under strict time constraints, demonstrating problem-solving ability and competitive programming skills on a global stage.
-      </div>
+      <div class="cert-desc">Competed in an international 24-hour coding marathon solving complex algorithmic problems under strict time constraints, demonstrating problem-solving ability and competitive programming skills on a global stage.</div>
     </div>
     <div class="achievement-block reveal reveal-delay-1">
       <div class="cert-org">Achievement — National Buildathon</div>
       <div class="cert-name">Capgemini Exceller AgentifAI Buildathon 2026 – Round 2 Qualifier</div>
-      <div class="cert-desc">
-        Successfully qualified for Round 2 (The Deep Dive) of the Capgemini Exceller AgentifAI Buildathon 2026. Advanced from the Elevator Pitch stage based on solution clarity, innovation, and technical approach, earning mentorship from Capgemini industry professionals.
-      </div>
+      <div class="cert-desc">Successfully qualified for Round 2 (The Deep Dive) of the Capgemini Exceller AgentifAI Buildathon 2026. Advanced from the Elevator Pitch stage based on solution clarity, innovation, and technical approach, earning mentorship from Capgemini industry professionals.</div>
     </div>
   </div>
 </section>
@@ -573,7 +606,7 @@ footer{background:var(--green);padding:28px 60px;display:flex;align-items:center
         </div>
         <div class="contact-item">
           <div class="contact-icon">☎</div>
-          <div><span class="contact-meta">Phone</span><a href="tel:+910000000">+91 00000000</a></div>
+          <div><span class="contact-meta">Phone</span><a href="tel:+919087584678">+91 9087584678</a></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">in</div>
@@ -611,20 +644,11 @@ footer{background:var(--green);padding:28px 60px;display:flex;align-items:center
   </div>
 </footer>
 
-<!-- Hidden resume link for JS to use -->
-<a id="resumeLink" href="data:application/pdf;base64,RESUME_B64" download="Sharmila_J_Resume.pdf" style="display:none"></a>
-
 <script>
-// ── Resume open ──────────────────────────────────────────────────────────────
-function openResume() {
-  // Open PDF in new tab
-  const link = document.getElementById('resumeLink');
-  // For view: open in new tab
-  const b64 = link.href;
-  const win = window.open();
-  win.document.write('<iframe src="' + b64 + '" style="width:100%;height:100%;border:none;margin:0;padding:0" frameborder="0"></iframe>');
-  win.document.close();
-}
+// ── PHOTO PROTECTION: disable right-click ────────────────────────────────────
+document.addEventListener('contextmenu', function(e) {
+  if (e.target.tagName === 'IMG') e.preventDefault();
+});
 
 // ── Loader ───────────────────────────────────────────────────────────────────
 window.addEventListener('load', () => {
@@ -698,39 +722,27 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-// ── FIX 3: Contact form using mailto (no server needed) ──────────────────────
+// ── Contact form (mailto) ─────────────────────────────────────────────────────
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
-
   const fname    = document.getElementById('fname');
   const femail   = document.getElementById('femail');
   const fsubject = document.getElementById('fsubject');
   const fmsg     = document.getElementById('fmsg');
   const success  = document.getElementById('formSuccess');
   const error    = document.getElementById('formError');
-
   success.classList.remove('show');
   error.classList.remove('show');
-
-  // Validate
   let ok = true;
   [fname, femail, fsubject, fmsg].forEach(f => {
     if (!f.value.trim()) { f.style.borderColor = '#e53935'; ok = false; }
     else f.style.borderColor = '';
   });
   if (!ok) { error.classList.add('show'); return; }
-
-  // Build mailto link
   const to      = 'sharmijambu9@gmail.com';
   const subject = encodeURIComponent('[Portfolio] ' + fsubject.value.trim());
-  const body    = encodeURIComponent(
-    'Name: ' + fname.value.trim() + '\n' +
-    'Email: ' + femail.value.trim() + '\n\n' +
-    fmsg.value.trim()
-  );
-
+  const body    = encodeURIComponent('Name: ' + fname.value.trim() + '\nEmail: ' + femail.value.trim() + '\n\n' + fmsg.value.trim());
   window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
-
   success.classList.add('show');
   [fname, femail, fsubject, fmsg].forEach(f => f.value = '');
   setTimeout(() => success.classList.remove('show'), 7000);
