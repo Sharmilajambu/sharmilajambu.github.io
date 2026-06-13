@@ -242,66 +242,30 @@ footer{background:var(--green);padding:28px 60px;display:flex;align-items:center
   .certs-grid{grid-template-columns:repeat(2,1fr)}
   .cert-highlight{grid-column:span 2}
   .achievement-container{grid-template-columns:1fr}
-  #hero{padding:100px 40px 80px;gap:40px}
-  section{padding:80px 40px}
 }
 @media(max-width:900px){
   nav{padding:16px 20px}
   nav.scrolled{padding:12px 20px}
   .nav-links,.nav-btn-group{display:none}
   .hamburger{display:flex}
-  #hero{grid-template-columns:1fr;padding:90px 20px 50px;gap:30px}
+  #hero{grid-template-columns:1fr;padding:100px 20px 60px;gap:40px}
   .hero-right{display:none}
   .hero-ticker{display:none}
-  .hero-name .line:nth-child(1){font-size:clamp(2.2rem,8vw,3.5rem)}
-  .hero-name .line:nth-child(2){font-size:clamp(1.8rem,6vw,2.8rem)}
-  section{padding:60px 20px}
-  .section-title{font-size:clamp(2rem,8vw,3.5rem);margin-bottom:36px}
-  .about-layout,.contact-layout{grid-template-columns:1fr;gap:40px}
-  .about-tagline{font-size:1.5rem}
+  section{padding:70px 20px}
+  .about-layout,.contact-layout{grid-template-columns:1fr}
   .exp-item{grid-template-columns:1fr}
-  .exp-left{border-right:none;border-bottom:1.5px solid var(--border);padding:18px 20px;flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-  .exp-right{padding:20px}
-  .exp-role{font-size:1.2rem}
+  .exp-left{border-right:none;border-bottom:1.5px solid var(--border);padding:18px 20px}
   .projects-grid{grid-template-columns:1fr}
-  .project-card-inner{padding:22px}
-  .project-title{font-size:1.2rem}
   .certs-grid{grid-template-columns:1fr}
   .cert-highlight,.cert-web-highlight{grid-column:span 1}
   .achievement-container{grid-template-columns:1fr}
-  .contact-layout{gap:30px}
-  .contact-left h3{font-size:1.8rem}
-  .contact-item a{font-size:.78rem;word-break:break-all}
-  footer{padding:20px;flex-direction:column;text-align:center;gap:10px}
-  .footer-links{justify-content:center}
+  footer{padding:20px;flex-direction:column;text-align:center}
 }
 @media(max-width:560px){
-  nav{padding:14px 16px}
-  .hero-eyebrow{font-size:.62rem;padding:6px 12px}
-  .hero-name .line:nth-child(1){font-size:clamp(1.9rem,9vw,2.8rem)}
-  .hero-name .line:nth-child(2){font-size:clamp(1.5rem,7vw,2.2rem)}
-  .hero-desc{font-size:.88rem}
-  .hero-btns{flex-direction:column;gap:10px}
-  .btn-primary,.btn-outline{width:100%;justify-content:center;padding:13px 20px}
-  .hero-socials{flex-wrap:wrap;gap:8px}
+  .hero-name{font-size:3.4rem}
   .about-stats{flex-direction:column}
-  .stat{border-right:none;border-bottom:1.5px solid var(--border);padding:16px}
+  .stat{border-right:none;border-bottom:1.5px solid var(--border)}
   .stat:last-child{border-bottom:none}
-  .stat-num{font-size:2rem}
-  .about-tagline{font-size:1.3rem}
-  .skill-bar-name{width:80px;font-size:.76rem}
-  .exp-left{flex-direction:column;align-items:flex-start}
-  .exp-role{font-size:1.1rem}
-  .exp-desc{font-size:.82rem}
-  .section-title{font-size:clamp(1.8rem,9vw,3rem)}
-  .cert-card{padding:18px}
-  .cert-name{font-size:.82rem}
-  .achievement-block{padding:18px}
-  .contact-item{padding:14px 16px;gap:12px}
-  .contact-icon{width:36px;height:36px;font-size:.72rem}
-  .form-group input,.form-group textarea{font-size:.86rem;padding:13px 16px}
-  .form-submit{width:100%;justify-content:center}
-  footer{padding:16px}
 }
 </style>
 </head>
@@ -335,10 +299,6 @@ footer{background:var(--green);padding:28px 60px;display:flex;align-items:center
   <a href="#projects" onclick="toggleMenu()">Projects</a>
   <a href="#certifications" onclick="toggleMenu()">Certs</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
-  <div style="display:flex;gap:12px;margin-top:10px">
-    <button class="nav-resume" onclick="toggleMenu();window.open('Sharmila_J_Resume.pdf','_blank')" style="font-size:.9rem;padding:10px 22px">📄 Resume</button>
-    <button class="nav-cta" onclick="toggleMenu();document.getElementById('contact').scrollIntoView({behavior:'smooth'})" style="font-size:.9rem;padding:10px 22px">Hire Me</button>
-  </div>
 </div>
 
 <section id="hero">
